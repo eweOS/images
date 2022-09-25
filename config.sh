@@ -8,7 +8,7 @@ echo "Configure image: [$kiwi_iname]..."
 #======================================
 # Copy kernel image
 #--------------------------------------
-cp /usr/lib/modules/*/vmlinux /boot/vmlinux
+cp /usr/lib/modules/*/vmlinuz /boot/vmlinuz
 
 #======================================
 # Enable virtio-net driver
