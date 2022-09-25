@@ -22,7 +22,7 @@
         <rpm-check-signatures>false</rpm-check-signatures>
     </preferences>
     <preferences profiles="DiskImage">
-        <type image="kis" filesystem="ext4" kernelcmdline="console=ttyS0" initrd_system="none">
+        <type image="kis" filesystem="ext4" kernelcmdline="console=ttyS0">
             <size unit="G">3</size>
         </type>
     </preferences>
