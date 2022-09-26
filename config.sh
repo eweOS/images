@@ -22,6 +22,7 @@ echo "virtio_input" >> /etc/modules
 #--------------------------------------
 ln -s ../modules /etc/dinit.d/boot.d
 ln -s ../udhcpc /etc/dinit.d/boot.d
+ln -s ../ttyS0 /etc/dinit.d/boot.d
 
 #======================================
 # Change hostname and set password
