@@ -23,7 +23,7 @@
     </preferences>
     <preferences profiles="DiskImage">
         <type image="kis" filesystem="ext4" kernelcmdline="console=ttyS0">
-            <size unit="G">3</size>
+            <size unit="G">10</size>
         </type>
     </preferences>
     <repository components="eweOS_Main_Rolling">
