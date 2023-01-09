@@ -10,18 +10,18 @@
         <specification>eweOS Appliance</specification>
     </description>
     <profiles>
-        <profile name="DiskImage" description="Bootable Disk Image of eweOS">
+        <profile name="KISImage" description="Kernel-Initramfs-System Image of eweOS">
         </profile>
     </profiles>
     <preferences>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <packagemanager>pacman</packagemanager>
         <locale>POSIX</locale>
         <keytable>us</keytable>
         <timezone>UTC</timezone>
         <rpm-check-signatures>false</rpm-check-signatures>
     </preferences>
-    <preferences profiles="DiskImage">
+    <preferences profiles="KISImage">
         <type image="kis" filesystem="ext4" kernelcmdline="console=ttyS0">
             <size unit="G">10</size>
         </type>
@@ -32,8 +32,7 @@
     <repository components="eweOS_Image_Tools_Rolling">
         <source path="obs://eweOS:Image:Tools/Rolling"/>
     </repository>
-    <packages type="image" profiles="DiskImage">
-      	<package name="clover-efi"/>
+    <packages type="image" profiles="KISImage">
         <package name="linux"/>
         <package name="dinit"/>
       	<package name="base"/>
