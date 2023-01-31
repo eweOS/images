@@ -23,11 +23,20 @@ echo "virtio_input" >> /etc/modules
 ln -s ../modules /etc/dinit.d/boot.d
 ln -s ../udhcpc /etc/dinit.d/boot.d
 ln -s ../ttyInit /etc/dinit.d/boot.d
+ln -s ../greetd /etc/dinit.d/boot.d
 
 #======================================
-# Change hostname and set password
+# Change hostname and set password and sudo
 #--------------------------------------
 echo "eweos-img" > /etc/hostname
-echo 'root:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
+adduser -D ewe
+addgroup -S wheel
+adduser ewe wheel
+echo 'ewe:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
+sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
 
-
+#======================================
+# Set greeter text
+#--------------------------------------
+sed -i 's/^command = .*$/command = "CMD"/g' /etc/greetd/config.toml
+sed -i "s@CMD@tuigreet -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml

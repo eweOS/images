@@ -40,7 +40,9 @@
         <package name="neofetch"/>
         <package name="git"/>
         <package name="vim"/>
-        <package name="mkinitramfs"/>
+	<package name="mkinitramfs"/>
+	<package name="greetd-tui"/>
+	<package name="sudo"/>
     </packages>
     <packages type="bootstrap">
         <package name="filesystem"/>
