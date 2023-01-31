@@ -30,10 +30,8 @@ ln -s ../greetd /etc/dinit.d/boot.d
 #--------------------------------------
 echo "eweos-img" > /etc/hostname
 adduser -D ewe
-addgroup -S wheel
-adduser ewe wheel
 echo 'ewe:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
-sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
+echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 #======================================
 # Set greeter text
