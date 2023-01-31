@@ -37,4 +37,9 @@ echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 # Set greeter text
 #--------------------------------------
 sed -i 's/^command = .*$/command = "CMD"/g' /etc/greetd/config.toml
-sed -i "s@CMD@tuigreet -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml
+sed -i "s@CMD@tuigreet -t -r -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml
+
+#======================================
+# Write fstab (Currently placeholder)
+#--------------------------------------
+touch /etc/fstab
