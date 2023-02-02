@@ -23,6 +23,7 @@ echo "virtio_input" >> /etc/modules
 ln -s ../modules /etc/dinit.d/boot.d
 ln -s ../udhcpc /etc/dinit.d/boot.d
 ln -s ../ttyInit /etc/dinit.d/boot.d
+ln -s ../seatd /etc/dinit.d/boot.d
 ln -s ../greetd /etc/dinit.d/boot.d
 
 #======================================
@@ -32,6 +33,15 @@ echo "eweos-img" > /etc/hostname
 adduser -D ewe
 echo 'ewe:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
 echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
+
+#======================================
+# Initialize system users and groups
+#--------------------------------------
+catnest
+adduser ewe video
+adduser ewe seat
+adduser greeter video
+adduser greeter seat
 
 #======================================
 # Set greeter text
