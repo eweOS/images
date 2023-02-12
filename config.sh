@@ -31,6 +31,7 @@ ln -s ../greetd /etc/dinit.d/boot.d
 #--------------------------------------
 echo "eweos-img" > /etc/hostname
 adduser -D ewe
+echo 'root:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
 echo 'ewe:$1$ewe$gaySV0Ar7d0prQ/1fYOKu0' | chpasswd -e || true
 echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 
