@@ -42,6 +42,7 @@
         <package name="vim"/>
 	<package name="tinyramfs"/>
 	<package name="greetd-tui"/>
+	<package name="seatd"/>
 	<package name="sudo"/>
     </packages>
     <packages type="bootstrap">
