@@ -6,6 +6,12 @@
 echo "Configure image: [$kiwi_iname]..."
 
 #======================================
+# Move pacman database
+#--------------------------------------
+rm /var/lib/pacman/sync/main.db || true
+mv /var/lib/pacman/sync/eweOS_Main_Rolling.db /var/lib/pacman/sync/main.db
+
+#======================================
 # Generate initramfs
 #--------------------------------------
 cd / && ls usr/lib/modules/*/vmlinuz | /usr/share/libalpm/scripts/tinyramfs-gen
