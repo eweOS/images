@@ -6,6 +6,11 @@
 echo "Configure image: [$kiwi_iname]..."
 
 #======================================
+# Remove duplicate kernel images
+#--------------------------------------
+rm /boot/vmlinuz* || true
+
+#======================================
 # Enable virtio driver
 #--------------------------------------
 echo "virtio_net" >> /etc/modules
