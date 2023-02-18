@@ -6,6 +6,11 @@
 echo "Configure image: [$kiwi_iname]..."
 
 #======================================
+# Generate initramfs
+#--------------------------------------
+cd / && ls usr/lib/modules/*/vmlinuz | /usr/share/libalpm/scripts/tinyramfs-gen
+
+#======================================
 # Enable virtio driver
 #--------------------------------------
 echo "virtio_net" >> /etc/modules
