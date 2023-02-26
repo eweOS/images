@@ -45,7 +45,7 @@
         </type>
     </preferences>
     <preferences profiles="SquashFS">
-        <type image="squashfs">
+        <type image="squashfs" squashfscompression="gzip">
         </type>
     </preferences>
     <repository components="eweOS_Main_Rolling" alias="main">
