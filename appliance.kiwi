@@ -48,7 +48,7 @@
         <type image="squashfs">
         </type>
     </preferences>
-    <repository components="eweOS_Main_Rolling" alias="main" imageonly="true">
+    <repository components="eweOS_Main_Rolling" alias="main">
         <source path="obs://eweOS:Main/Rolling"/>
     </repository>
     <repository components="eweOS_Image_Tools_Rolling">
