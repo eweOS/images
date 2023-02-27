@@ -78,3 +78,13 @@ user = "ewe"
 EOF
 fi
 
+#======================================
+# Testing: Enable global mimalloc
+#--------------------------------------
+echo "LD_PRELOAD=/usr/lib/libmimalloc.so" >> /etc/environment
+
+#======================================
+# Testing: Enable global lto
+#--------------------------------------
+echo LTOFLAGS="-flto=auto" >> /etc/makepkg.conf
+sed -i 's@!lto@lto@g' /etc/makepkg.conf

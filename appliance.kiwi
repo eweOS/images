@@ -3,7 +3,7 @@
 <!-- The line below is required in order to use the multibuild OBS features -->
 <!-- OBS-Profiles: @BUILD_FLAVOR@ -->
 
-<image schemaversion="7.5" name="eweos">
+<image schemaversion="7.5" name="eweos-testing">
     <description type="system">
         <author>Yukari Chiba</author>
         <contact>i@0x7f.cc</contact>
@@ -70,6 +70,7 @@
         <package name="efistub"/>
     </packages>
     <packages type="image">
+	<package name="mimalloc"/>
       	<package name="base"/>
       	<package name="linux-headers"/>
         <package name="neofetch"/>
