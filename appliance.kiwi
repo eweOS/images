@@ -42,11 +42,11 @@
         </type>
     </preferences>
     <preferences profiles="tarball">
-        <type image="tbz" bundle_format="%N-%A-%P-%I">
+        <type image="tbz" bundle_format="%N-%P-%A-%I">
         </type>
     </preferences>
     <preferences profiles="squashfs">
-        <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%A-%P-%I">
+        <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%P-%A-%I">
         </type>
     </preferences>
     <repository components="eweOS_Main_Rolling" alias="main">
