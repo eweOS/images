@@ -3,18 +3,18 @@
 <!-- The line below is required in order to use the multibuild OBS features -->
 <!-- OBS-Profiles: @BUILD_FLAVOR@ -->
 
-<image schemaversion="7.5" name="eweOS-rollingrelease">
+<image schemaversion="7.5" name="eweos">
     <description type="system">
         <author>Yukari Chiba</author>
         <contact>i@0x7f.cc</contact>
         <specification>eweOS Appliance</specification>
     </description>
     <profiles>
-        <profile name="DiskImage" description="Disk Image of eweOS">
+        <profile name="diskimage" description="Disk Image of eweOS">
         </profile>
-        <profile name="Tarball" description="tar Archive Image of eweOS">
+        <profile name="tarball" description="tar Archive Image of eweOS">
         </profile>
-        <profile name="SquashFS" description="SquashFS Image of eweOS">
+        <profile name="squashfs" description="SquashFS Image of eweOS">
         </profile>
     </profiles>
     <preferences>
@@ -25,8 +25,9 @@
         <timezone>UTC</timezone>
         <rpm-check-signatures>false</rpm-check-signatures>
     </preferences>
-    <preferences profiles="DiskImage">
+    <preferences profiles="diskimage">
         <type
+              bundle_format="%N-%P-%A-%I"
               image="oem"
               filesystem="ext4"
               format="qcow2"
@@ -40,12 +41,12 @@
             <bootloader name="custom"/>
         </type>
     </preferences>
-    <preferences profiles="Tarball">
-        <type image="tbz">
+    <preferences profiles="tarball">
+        <type image="tbz" bundle_format="%N-%A-%P-%I">
         </type>
     </preferences>
-    <preferences profiles="SquashFS">
-        <type image="squashfs" squashfscompression="gzip">
+    <preferences profiles="squashfs">
+        <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%A-%P-%I">
         </type>
     </preferences>
     <repository components="eweOS_Main_Rolling" alias="main">
@@ -54,15 +55,15 @@
     <repository components="eweOS_Image_Tools_Rolling">
         <source path="obs://eweOS:Image:Tools/Rolling"/>
     </repository>
-    <packages type="image" profiles="Tarball">
+    <packages type="image" profiles="tarball">
         <package name="dinit"/>
     </packages>
-    <packages type="image" profiles="SquashFS">
+    <packages type="image" profiles="squashfs">
         <package name="dinit"/>
 	<package name="tinyramfs"/>
         <package name="linux"/>
     </packages>
-    <packages type="image" profiles="DiskImage">
+    <packages type="image" profiles="diskimage">
         <package name="linux"/>
         <package name="dinit"/>
         <package name="tinyramfs"/>

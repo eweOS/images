@@ -59,7 +59,7 @@ touch /etc/fstab
 #======================================
 # Make unified kernel image
 #--------------------------------------
-if [[ $kiwi_profiles == *"DiskImage"* ]]; then
+if [[ $kiwi_profiles == *"diskimage"* ]]; then
   sed -i 's@root=.*@root=LABEL="EWE_ROOT"@' /etc/tinyramfs/config
   genefistub
   # KIWI searches for efi instead of EFI
@@ -70,7 +70,7 @@ fi
 #======================================
 # Configure autologin
 #--------------------------------------
-if [[ $kiwi_profiles == *"SquashFS"* ]]; then
+if [[ $kiwi_profiles == *"squashfs"* ]]; then
 cat <<EOF >>/etc/greetd/config.toml
 [initial_session]
 command = "bash -c 'cat /etc/motd && bash'"
