@@ -18,7 +18,7 @@
         </profile>
     </profiles>
     <preferences>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
         <packagemanager>pacman</packagemanager>
         <locale>POSIX</locale>
         <keytable>us</keytable>
@@ -77,7 +77,8 @@
         <package name="git"/>
         <package name="vim"/>
         <package name="greetd-tui"/>
-        <package name="seatd"/>
+	<package name="seatd"/>
+	<package name="makepkg"/>
         <package name="sudo"/>
     </packages>
     <packages type="bootstrap">
