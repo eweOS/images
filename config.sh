@@ -88,3 +88,23 @@ echo "LD_PRELOAD=/usr/lib/libmimalloc.so" >> /etc/environment
 #--------------------------------------
 echo LTOFLAGS="-flto=auto" >> /etc/makepkg.conf
 sed -i 's@!lto@lto@g' /etc/makepkg.conf
+
+#======================================
+# Testing: Enable testing repo
+#--------------------------------------
+cat <<EOF >>/etc/pacman.conf
+[options]
+HoldPkg     = pacman musl busybox
+Architecture = auto
+Color
+CheckSpace
+ParallelDownloads = 8
+
+[main]
+SigLevel = Never
+Server = http://os-repo.ewe.moe/eweos/main/os/$arch/
+
+[testing]
+SigLevel = Never
+Server = http://os-repo.ewe.moe/eweos/testing/os/$arch/
+EOF
