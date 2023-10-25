@@ -18,7 +18,7 @@
         </profile>
     </profiles>
     <preferences>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
         <packagemanager>pacman</packagemanager>
         <locale>POSIX</locale>
         <keytable>us</keytable>
@@ -49,11 +49,8 @@
         <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%A-%I">
         </type>
     </preferences>
-    <repository components="eweOS_Main_Rolling" alias="main">
-        <source path="obs://eweOS:Main/Rolling"/>
-    </repository>
-    <repository components="eweOS_Image_Tools_Rolling">
-        <source path="obs://eweOS:Image:Tools/Rolling"/>
+    <repository components="eweOS_Main_rolling" alias="main">
+        <source path="obs://eweOS:Main/rolling"/>
     </repository>
     <packages type="image" profiles="tarball">
         <package name="dinit"/>
