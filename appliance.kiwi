@@ -18,7 +18,7 @@
         </profile>
     </profiles>
     <preferences>
-        <version>1.5.0</version>
+        <version>1.6.0</version>
         <packagemanager>pacman</packagemanager>
         <locale>POSIX</locale>
         <keytable>us</keytable>
@@ -58,13 +58,17 @@
     <packages type="image" profiles="squashfs">
         <package name="dinit"/>
 	<package name="tinyramfs"/>
-        <package name="linux"/>
+	<package name="linux"/>
+        <package name="greetd-tui"/>
+        <package name="seatd"/>
     </packages>
     <packages type="image" profiles="diskimage">
         <package name="linux"/>
         <package name="dinit"/>
         <package name="tinyramfs"/>
-        <package name="efistub"/>
+	<package name="efistub"/>
+        <package name="greetd-tui"/>
+        <package name="seatd"/>
     </packages>
     <packages type="image">
       	<package name="base"/>
@@ -72,8 +76,6 @@
         <package name="neofetch"/>
         <package name="git"/>
         <package name="vim"/>
-        <package name="greetd-tui"/>
-        <package name="seatd"/>
         <package name="sudo"/>
     </packages>
     <packages type="bootstrap">

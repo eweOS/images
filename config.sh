@@ -21,11 +21,10 @@ echo "virtio_input" >>/etc/modules
 #======================================
 # Enable init services
 #--------------------------------------
-ln -s ../modules /etc/dinit.d/boot.d
-ln -s ../udhcpc /etc/dinit.d/boot.d
-ln -s ../ttyInit /etc/dinit.d/boot.d
-ln -s ../seatd /etc/dinit.d/boot.d
-ln -s ../greetd /etc/dinit.d/boot.d
+ln -s /usr/lib/dinit.d/system/udhcpc /etc/dinit.d/boot.d
+if [[ $kiwi_profiles == *"tarball"* ]]; then
+  ln -s /usr/lib/dinit.d/system/greetd /etc/dinit.d/boot.d
+fi
 
 #======================================
 # Change hostname and set password and sudo
@@ -40,16 +39,20 @@ echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >>/etc/sudoers
 # Initialize system users and groups
 #--------------------------------------
 catnest
-adduser ewe video
-adduser ewe seat
-adduser greeter video
-adduser greeter seat
+if [[ $kiwi_profiles == *"tarball"* ]]; then
+  adduser ewe video
+  adduser ewe seat
+  adduser greeter video
+  adduser greeter seat
+fi
 
 #======================================
 # Set greeter text
 #--------------------------------------
-sed -i 's/^command = .*$/command = "CMD"/g' /etc/greetd/config.toml
-sed -i "s@CMD@tuigreet -t -r -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml
+if [[ $kiwi_profiles == *"tarball"* ]]; then
+  sed -i 's/^command = .*$/command = "CMD"/g' /etc/greetd/config.toml
+  sed -i "s@CMD@tuigreet -t -r -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml
+fi
 
 #======================================
 # Write fstab (Currently placeholder)
