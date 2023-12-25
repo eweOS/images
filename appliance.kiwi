@@ -18,7 +18,7 @@
         </profile>
     </profiles>
     <preferences>
-        <version>1.6.0</version>
+        <version>1.6.1</version>
         <packagemanager>pacman</packagemanager>
         <locale>POSIX</locale>
         <keytable>us</keytable>
@@ -27,7 +27,7 @@
     </preferences>
     <preferences profiles="diskimage">
         <type
-              bundle_format="%N-%A-%I"
+              bundle_format="%N-%A-diskimage"
               image="oem"
               filesystem="ext4"
               format="qcow2"
@@ -42,11 +42,11 @@
         </type>
     </preferences>
     <preferences profiles="tarball">
-        <type image="tbz" bundle_format="%N-%A-%I">
+        <type image="tbz" bundle_format="%N-%A-tarball">
         </type>
     </preferences>
     <preferences profiles="squashfs">
-        <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%A-%I">
+        <type image="squashfs" squashfscompression="gzip" bundle_format="%N-%A-squashfs">
         </type>
     </preferences>
     <repository components="eweOS_Main_rolling" alias="main">

@@ -22,7 +22,7 @@ echo "virtio_input" >>/etc/modules
 # Enable init services
 #--------------------------------------
 ln -s /usr/lib/dinit.d/system/udhcpc /etc/dinit.d/boot.d
-if [[ $kiwi_profiles == *"tarball"* ]]; then
+if [[ $kiwi_profiles != *"tarball"* ]]; then
   ln -s /usr/lib/dinit.d/system/greetd /etc/dinit.d/boot.d
 fi
 
@@ -39,7 +39,7 @@ echo 'ewe ALL=(ALL:ALL) NOPASSWD: ALL' >>/etc/sudoers
 # Initialize system users and groups
 #--------------------------------------
 catnest
-if [[ $kiwi_profiles == *"tarball"* ]]; then
+if [[ $kiwi_profiles != *"tarball"* ]]; then
   adduser ewe video
   adduser ewe seat
   adduser greeter video
@@ -49,7 +49,7 @@ fi
 #======================================
 # Set greeter text
 #--------------------------------------
-if [[ $kiwi_profiles == *"tarball"* ]]; then
+if [[ $kiwi_profiles != *"tarball"* ]]; then
   sed -i 's/^command = .*$/command = "CMD"/g' /etc/greetd/config.toml
   sed -i "s@CMD@tuigreet -t -r -g 'This image is unstable and for developers only\\\ndefault user/pass: ewe/ewe' --cmd bash@g" /etc/greetd/config.toml
 fi
